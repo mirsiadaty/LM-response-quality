@@ -18,7 +18,9 @@ For example, methods we use to modify/perturb the prompt include:
 + Adding/Removing Words or Phrases: Introduce or delete words, phrases, or even punctuation marks to test the model's sensitivity to these alterations.
 + Rephrasing Sentences: Rewrite sentences while preserving the core meaning to see how the model responds to different sentence structures.
 + insert whitespaces, amount location order
-+ Adding Typos or Grammatical Errors: Introduce small errors to see if the model can still understand the prompt and provide a relevant response. 
++ Adding Typos or Grammatical Errors: Introduce small errors to see if the model can still understand the prompt and provide a relevant response.
++ besides above NLP methods, we may have an LM to rewrite a given prompt into different styles.
++ also there are python libs that diversify prompts, for example 'https://github.com/MadcowD/ell' and 'https://github.com/stanfordnlp/dspy' and 'https://github.com/meta-llama/llama-prompt-ops'
 
 The topic of "prompt engineering" attests to the above observation, that modifying the prompt we send to LM will affect the response we get from LM.
 <br>
