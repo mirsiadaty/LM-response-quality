@@ -8,6 +8,8 @@ In other words, if we can reduce FNR, we will improve the quality of the LM resp
 
 A practical question is, where do we get such useful 'hints' in the first place, so that we include them in the prompt we are sending to the LM!
 
+
+
 Another observation is that:
 > perturbing the LM prompt, will change the answer the LM generates, sometimes significantly.
 For example, methods we use to modify/perturb the prompt include:
