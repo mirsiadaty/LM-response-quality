@@ -20,3 +20,5 @@ For example, methods we use to modify/perturb the prompt include:
 + insert whitespaces, amount location order
 + Adding Typos or Grammatical Errors: Introduce small errors to see if the model can still understand the prompt and provide a relevant response. 
 
+The topic of "prompt engineering" attests to the above observation, that modifying the prompt we send to LM will affect the response we get from LM.
+
