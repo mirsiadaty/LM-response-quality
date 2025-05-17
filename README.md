@@ -12,6 +12,7 @@ A practical question is, where do we get such useful 'hints' in the first place,
 
 Another observation is that:
 > perturbing the LM prompt, will change the answer the LM generates, sometimes significantly.
+
 For example, methods we use to modify/perturb the prompt include:
 + Synonym Replacement: Substitute words with their synonyms to observe if the change in vocabulary affects the output.
 + Adding/Removing Words or Phrases: Introduce or delete words, phrases, or even punctuation marks to test the model's sensitivity to these alterations.
