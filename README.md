@@ -27,9 +27,12 @@ The topic of "prompt engineering" attests to the above observation, that modifyi
 Here is the quality-improvement algorithm:
 
 1. given a question Q, say "Which big tech stock has the largest year-to-date gain this year? How much is the gain?"
-2. generate a set of prompts, call it set-P, using the "prompt perturbation methods" outlined above {synonymy, adding phrases, rephrasing, whitespace insertion, typo insertion}, where all of the prompts are asking the same Q, but with slightly different wording
+2. generate a set of prompts, call it set-P, using the "prompt perturbation methods" outlined above {synonymy, adding phrases, rephrasing, whitespace insertion, typo insertion}, where all of the prompts are asking the same Q, but with slightly different wording / format;
 3. take a set of LMs, call it set-L, for example {qwq-32b-q8_0.gguf, DeepSeek-R1-Distill-Qwen-14B-f16, Llama-4-Scout-17B-16E-Instruct}, and generate responses by sending set-P to set-L;
-4. 
+4. Generate prompt for a final LM, where the prompt includes both the original question Q plus the 'setP x setL' responses generated from above steps.
+5. This final LM response should benefit from the "few-shot learning" method for prompt-engineering explained in this algorithm. The quality of the final LM response is lower-bounded by the maximum quality observed within set-P.
+<br>
+<br>
 
-
+The following is excerpt of the code that implements the above algorithm, "few-shot-learning prompt-engineering":
 
