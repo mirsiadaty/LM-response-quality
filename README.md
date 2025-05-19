@@ -142,7 +142,7 @@ What are the weather alerts in New York, Virginia, California, and Alaska?
 <｜Assistant｜>
 ```
 
-the LM answer uses a completely different internet resource, in addition to a different code structure:
+the LM answer uses a completely different internet resource (using www.weather.gov instead of api.openweathermap.org), in addition to a different code structure (printing versus saving as file, also using a loop versus repeatedly calling the same function):
 
 ```
 <PyCode>
