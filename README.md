@@ -40,7 +40,7 @@ The following is excerpt of the code that implements the above algorithm, "few-s
 
 To demonstrate effect of prompt-perturbation on language-model LM response, we use just extra whitespace in the form of blank lines added to the given prompt to make a new version of the prompt. Then we query the same LM (DeepSeek-R1-Distill-Qwen-14B-f16.gguf) with the two prompt. The following shows how significantly the LM answer changes.
 
-When using regular original prompt:
+When using regular/original prompt:
 
 ```
 <｜begin▁of▁sentence｜>
@@ -62,8 +62,11 @@ You need to follow these instructions strictly:
 What are the weather alerts in New York, Virginia, California, and Alaska?
 /Question>
 <｜Assistant｜>
+```
 
+then the LM answer is:
 
+```
 import requests
 import pandas as pd
 
@@ -96,7 +99,50 @@ df.to_csv('weather_alerts.csv', index=False)
 print("Weather alerts have been fetched and saved to weather_alerts.csv.")
 ```
 
-versus when using prompt with extra newlines:
+
+Whereas when using prompt with extra newlines:
+
+```
+<｜begin▁of▁sentence｜>
+
+You are a planning agent. If you do not know the answer, reply I don't know, don't make things up.
+
+<｜User｜>
+
+You need to follow these instructions strictly:
+
+1.Generate a plan of actions, 'Action Plan', do not take any action.
+
+2.What 'Action Plan' is: a numbered list of steps to take in order to answer the question marked up by the tags <Question> and </Question>.
+
+3.Mark up your answer by tags <ActionPlan> and </ActionPlan>.
+
+4.You need to use a Tool per step in your 'Action Plan'. Each tool can be used in more than one step, or in no step at all.
+
+5.The Tools at your disposal are:
+
+ 5.1.'PythonCodeExecutor': it accepts a python code, executes it in python, returns the execution output back. Install packages first as a separate step (before executing any other python code), using the method: subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+ 5.2.'ResponseComposer': it takes the Question, the ActionPlan, and the answers to the steps of the ActionPlan, then it composes the final response to the end-user who asked the Question.
+
+ 5.3.'HumanInTheLoop': after certain steps (like PythonCodeExecutor steps), add a step with the tool HumanInTheLoop where the human supervisor will verify you can continue with the next step in the plan. Otherwise HumanInTheLoop will terminate the execution of this ActionPlan.
+
+6.For steps that use PythonCodeExecutor, generate the python code to execute such step, and include it in the tags <PyCode> and </PyCode>.
+
+7.Add a final step for composing response to the end-user who asked the Question.
+
+
+
+<Question>
+
+What are the weather alerts in New York, Virginia, California, and Alaska?
+
+/Question>
+
+<｜Assistant｜>
+```
+
+the LM answer uses a completely different internet resource, in addition to a different code structure:
 
 ```
 <PyCode>
