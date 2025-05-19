@@ -34,6 +34,10 @@ The topic of "prompt engineering" attests to the above observation, that modifyi
 
 **Few-Shot-Learning Prompt-Engineering**
 
+One approach is, instead of focusing to craft an excellent prompt to send to LM, we use our effort to generate a set of various versions of the initial prompt. We then get LM responses for the prompts. Finally we get the LM to compose a final answer that is the "central tendency" of the set of answers we just got from the LM.
+
+The set of LM answers are the "hints" that we insert in the LM prompt for the final 'central tendency' answer.
+
 Here is the quality-improvement algorithm:
 
 1. given a question Q, say "Which big tech stock has the largest year-to-date gain this year? How much is the gain?"
