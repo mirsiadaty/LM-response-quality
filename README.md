@@ -46,6 +46,8 @@ Here is the quality-improvement algorithm:
 
 The following is excerpt of the code that implements the above algorithm, "few-shot-learning prompt-engineering".
 
+**Sensitivity of LM to whitespaces in prompt**
+
 To demonstrate effect of prompt-perturbation on language-model LM response, we use just extra whitespace in the form of blank lines added to the given prompt to make a new version of the prompt. Then we query the same LM (DeepSeek-R1-Distill-Qwen-14B-f16.gguf) with the two prompt. The following shows how significantly the LM answer changes.
 
 When using regular/original prompt:
@@ -151,6 +153,10 @@ What are the weather alerts in New York, Virginia, California, and Alaska?
 ```
 
 the LM answer uses a completely different internet resource (using www.weather.gov instead of api.openweathermap.org), in addition to a different code structure (printing versus saving as file, also using a loop versus repeatedly calling the same function):
+
+1. Using different internet resource, www.weather.gov instead of api.openweathermap.org
+2. Saving the output into a file versus printing it on monitor
+3. Using loop to process each item in the list (names of US states) versus repeatedly calling the same function on every item
 
 ```
 <PyCode>
