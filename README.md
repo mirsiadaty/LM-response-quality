@@ -14,9 +14,6 @@ A practical question is, where do we get such useful 'hints' in the first place,
 
 
 ## Perturbing the prompt
-
-**Perturbing the prompt**
-
 Another observation is that:
 > perturbing the LM prompt, will change the answer the LM generates, sometimes significantly.
 
@@ -33,8 +30,7 @@ The topic of "prompt engineering" attests to the above observation, that modifyi
 <br>
 <br>
 
-**Few-Shot-Learning Prompt-Engineering**
-
+## Few-Shot-Learning Prompt-Engineering
 One approach is, instead of focusing to craft an excellent prompt to send to LM, we use our effort to generate a set of various versions of the initial prompt. We then get LM responses for the prompts. Finally we get the LM to compose a final answer that is the "central tendency" of the set of answers we just got from the LM.
 
 The set of LM answers are the "hints" that we insert in the LM prompt for the final 'central tendency' answer.
@@ -51,8 +47,7 @@ Here is the quality-improvement algorithm:
 
 The following is excerpt of the code that implements the above algorithm, "few-shot-learning prompt-engineering".
 
-**Sensitivity of LM to whitespaces in prompt**
-
+## Sensitivity of LM to whitespaces in prompt
 To demonstrate effect of prompt-perturbation on language-model LM response, we use just extra whitespace in the form of blank lines added to the given prompt to make a new version of the prompt. Then we query the same LM (DeepSeek-R1-Distill-Qwen-14B-f16.gguf) with the two prompt. The following shows how significantly the LM answer changes.
 
 When using regular/original prompt:
