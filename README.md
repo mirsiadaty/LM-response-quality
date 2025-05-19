@@ -17,7 +17,7 @@ For example, methods we use to modify/perturb the prompt include:
 + Synonym Replacement: Substitute words with their synonyms to observe if the change in vocabulary affects the output.
 + Adding/Removing Words or Phrases: Introduce or delete words, phrases, or even punctuation marks to test the model's sensitivity to these alterations.
 + Rephrasing Sentences: Rewrite sentences while preserving the core meaning to see how the model responds to different sentence structures.
-+ insert whitespaces, amount location order
++ insert/reduce whitespaces (amount, location, order, type)
 + Adding Typos or Grammatical Errors: Introduce small errors to see if the model can still understand the prompt and provide a relevant response.
 + besides above NLP methods, we may have an LM to rewrite a given prompt into different styles.
 + also there are python libs that diversify prompts, for example 'https://github.com/MadcowD/ell' and 'https://github.com/stanfordnlp/dspy' and 'https://github.com/meta-llama/llama-prompt-ops'
