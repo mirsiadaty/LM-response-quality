@@ -188,3 +188,6 @@ Please verify that the Python code is correct and that the weather alerts can be
 
 ```
 
+Note above changes in the LM behavior was the result of using exactly the same prompt (exactly the same words used, in exactly the same sequence) but only adding extra newlines.
+
+One may see how other 'substantial' perturbation methods, such as synonym replacement or rewriting the sentences, might affect the LM response further.
